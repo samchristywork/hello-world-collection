@@ -1,0 +1,8 @@
+digraph {
+  truecolor=true;
+  bgcolor="#00000000"
+
+  "Hello"[color=red];
+  "World!"[color=blue];
+  "Hello"->"World!"[color=green];
+}
