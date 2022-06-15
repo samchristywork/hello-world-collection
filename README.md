@@ -15,10 +15,13 @@ repository.
 
 ```
 Gnuplot
-Graphviz
 Kernel Module
+Lua API
 Operating System
 Web Assembly
+cURL API
+cjson
+rsvg
 ```
 
 ## License
