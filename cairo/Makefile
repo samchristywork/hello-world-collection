@@ -1,7 +1,7 @@
 CC := gcc
 
-LIBS := $(shell pkg-config --libs cairo)
 CFLAGS := $(shell pkg-config --cflags cairo)
+LIBS := $(shell pkg-config --libs cairo)
 
 all: build/hello
 
@@ -11,4 +11,3 @@ build/hello: hello.c
 
 clean:
 	rm -rf build/
-
