@@ -14,14 +14,23 @@ Here is a short list of "Hello, World!" projects that I want to add to this
 repository.
 
 ```
-Gnuplot
-Kernel Module
-Lua API
-Operating System
-Web Assembly
-cURL API
-cjson
-rsvg
+✓ LaTeX
+✓ asm
+✓ awk
+✓ c
+✓ cairo
+✓ cjson
+✓ express.js
+x gnuplot
+✓ graphviz
+✓ gtk
+x kernel module
+✓ libcurl
+✓ libpng
+✓ lua
+✓ python
+x rsvg
+x web assembly
 ```
 
 ## License
