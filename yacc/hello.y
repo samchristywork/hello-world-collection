@@ -18,7 +18,7 @@ input:
 
 line:
   '\n' { printf("0\n"); }
-| words '\n' { printf("%d\n", $1); }
+| words '\n' { printf("- %d\n", $1); }
 | error '\n' { yyerrok; }
 ;
 
@@ -43,8 +43,13 @@ int yylex(void) {
     return 0;
   }
 
+  /*
+   * Consume one "string" worth of characters.
+   */
+  ungetc(c, stdin);
   char i[256];
   scanf("%s", i);
+  printf("%s ", i);
 
   return WORD;
 }
