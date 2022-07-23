@@ -22,6 +22,9 @@ line:
 | error '\n' { yyerrok; }
 ;
 
+/*
+ * One word by itself has the value of '1', otherwise just increment the counter.
+ */
 words:
   words WORD { $$ = $1 + 1; }
 | WORD{ $$ = 1; }
@@ -32,13 +35,22 @@ words:
 int yylex(void) {
   int c;
 
+  /*
+   * Consume all whitespace.
+   */
   while ((c = getchar()) == ' ' || c == '\t') {
   }
 
+  /*
+   * Return the newline character on EOL.
+   */
   if (c == '\n') {
     return c;
   }
 
+  /*
+   * Exit when the end of the input is reached.
+   */
   if (c == EOF) {
     return 0;
   }
@@ -51,6 +63,10 @@ int yylex(void) {
   scanf("%s", i);
   printf("%s ", i);
 
+  /*
+   * If the control flow has reached here, then that means that the token that
+   * was consumed was a word.
+   */
   return WORD;
 }
 
