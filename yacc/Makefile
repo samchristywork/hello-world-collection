@@ -12,5 +12,8 @@ build/hello.c: hello.y
 	mkdir -p build/
 	bison -d -o $@ hello.y
 
+test: build/hello
+	echo "Hello, World!" | ./build/hello
+
 clean:
 	rm -rf build/
