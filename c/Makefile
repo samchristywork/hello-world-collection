@@ -8,3 +8,5 @@ build/hello: hello.c
 
 clean:
 	rm -rf build/
+
+.PHONY: clean

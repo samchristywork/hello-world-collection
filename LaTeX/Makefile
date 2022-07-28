@@ -6,3 +6,5 @@ build/hello.pdf: hello.tex
 
 clean:
 	rm -rf build/
+
+.PHONY: clean

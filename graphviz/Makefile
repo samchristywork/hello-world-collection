@@ -6,3 +6,5 @@ build/hello.svg: hello.dot
 
 clean:
 	rm -rf build/
+
+.PHONY: clean

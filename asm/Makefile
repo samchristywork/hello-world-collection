@@ -7,3 +7,5 @@ build/hello: hello.s
 
 clean:
 	rm -rf build/
+
+.PHONY: clean
