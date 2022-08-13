@@ -41,6 +41,29 @@ int main() {
     move(4, 3);
     printw("Key: %d  ", c);
 
+    /*
+     * Get window dimensions.
+     */
+    int width;
+    int height;
+    getmaxyx(w, height, width);
+
+    /*
+     * Print an "X" in the middle of the screen.
+     */
+    color_set(0, NULL);
+    move(height / 2, width / 2);
+    printw("X");
+
+    /*
+     * Draw a horizontal line.
+     */
+    move(0, 0);
+    hline('-', width);
+
+    /*
+     * Refresh and get user input.
+     */
     refresh();
     c = getch();
   }
