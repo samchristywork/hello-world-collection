@@ -3,6 +3,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+void signal_handler(int sig) {
+  endwin();
+  clear();
+  refresh();
+}
+
 int main() {
 
   WINDOW *w;
@@ -18,6 +24,11 @@ int main() {
   start_color();
   init_pair(1, COLOR_RED, COLOR_BLACK);
   init_pair(2, COLOR_GREEN, COLOR_BLACK);
+
+  struct sigaction act;
+  bzero(&act, sizeof(struct sigaction));
+  act.sa_handler = signal_handler;
+  sigaction(SIGWINCH, &act, NULL);
 
   int c = 0;
   while (c != 'q') {
