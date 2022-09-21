@@ -84,6 +84,7 @@ int main(int argc, char *argv[]) {
                    "Hello, World!\n");
   gtk_container_add(GTK_CONTAINER(box), button);
   g_signal_connect(window, "destroy", G_CALLBACK(gtk_main_quit), NULL);
+  gtk_widget_set_name(button, "myButton");
 
   // Drawing area
   drawingArea = gtk_drawing_area_new();
@@ -94,6 +95,11 @@ int main(int argc, char *argv[]) {
 
   gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
   gtk_window_set_title(GTK_WINDOW(window), "Hello, World!");
+
+  // CSS
+  GtkCssProvider *css = gtk_css_provider_new();
+  gtk_css_provider_load_from_path(css, "style.css", NULL);
+  gtk_style_context_add_provider_for_screen(gdk_screen_get_default(), GTK_STYLE_PROVIDER(css), GTK_STYLE_PROVIDER_PRIORITY_USER);
 
   // Events
   gtk_widget_add_events(window, GDK_KEY_PRESS_MASK);
