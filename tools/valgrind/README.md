@@ -1,7 +1,7 @@
 ## Overview
 
 Valgrind version of "Hello, World!". Build with `make` and run with `make
-valgrind`.
+valgrind`. Remember to compile with the `-g` flag.
 
 ## Example
 
