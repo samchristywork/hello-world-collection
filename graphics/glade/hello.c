@@ -14,6 +14,7 @@ int main(int argc, char *argv[]) {
   GtkWidget *button = GTK_WIDGET(gtk_builder_get_object(builder, "button"));
 
   gtk_builder_connect_signals(builder, NULL);
+  g_signal_connect(G_OBJECT(button), "key-press-event", G_CALLBACK(gtk_main_quit), NULL);
   g_signal_connect(G_OBJECT(button), "clicked", G_CALLBACK(clickCallback), NULL);
   g_signal_connect(G_OBJECT(window), "destroy", G_CALLBACK(gtk_main_quit), NULL);
 
