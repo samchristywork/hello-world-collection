@@ -7,8 +7,6 @@ all: build/hello
 build/libhello.so: build/libhello.o
 	mkdir -p build/
 	gcc -shared -Wl,-soname,libhello.so -o build/libhello.so build/libhello.o
-#	ar rv build/libhello.a build/libhello.o
-#	ranlib build/libhello.a
 
 build/libhello.o: libhello.c
 	mkdir -p build/
