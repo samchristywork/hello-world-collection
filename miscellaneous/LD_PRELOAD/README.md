@@ -13,5 +13,5 @@ You can run the program with `./build/hello`. This will print "Hello, World!" to
 `stdout`.
 
 If you want to use the alternative version of `write`, then you can invoke the
-program like this instead: `LD_PRELOAD=./build/mymalloc.so build/hello`, or just
+program like this instead: `LD_PRELOAD=./build/mywrite.so build/hello`, or just
 use `make run`.

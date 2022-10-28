@@ -2,18 +2,18 @@ CC := gcc
 
 CFLAGS := -Wall -Wextra -Wpedantic -g
 
-all: build/hello build/mymalloc.so
+all: build/hello build/mywrite.so
 
 build/hello: hello.c
 	mkdir -p build/
 	gcc hello.c -o $@
 
-build/mymalloc.so: mymalloc.c
+build/mywrite.so: mywrite.c
 	mkdir -p build/
-	gcc mymalloc.c -fPIC -shared -o $@
+	gcc mywrite.c -fPIC -shared -o $@
 
 run: all
-	LD_PRELOAD=./build/mymalloc.so build/hello
+	LD_PRELOAD=./build/mywrite.so build/hello
 
 clean:
 	rm -rf build/
