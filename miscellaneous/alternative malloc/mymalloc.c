@@ -28,7 +28,7 @@ void *malloc(size_t size) {
   block->size = size;
 
   char *p = ((char *)block) + sizeof(size_t);
-  for(int i=0;i<block->size;i++){
+  for (int i = 0; i < block->size; i++) {
     p[i] = 'a';
   }
 
