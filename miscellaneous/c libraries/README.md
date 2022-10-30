@@ -71,4 +71,4 @@ nm -gD build/libhello.so
 
 ## Further Reading
 
-https://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html
+<a href="TLDP link">https://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html</a>.
