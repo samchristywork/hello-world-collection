@@ -1,0 +1,8 @@
+appenders:
+  file_logger:
+    kind: file
+    path: "log/my.log"
+root:
+  level: trace
+  appenders:
+    - file_logger
