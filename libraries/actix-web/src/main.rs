@@ -1,5 +1,5 @@
-use actix_web::middleware::Logger;
-use actix_web::{App, HttpServer};
+use actix_files::Files;
+use actix_web::{middleware::Logger, App, HttpServer};
 use env_logger::Env;
 
 mod get_double;
@@ -11,13 +11,15 @@ async fn main() -> std::io::Result<()> {
 
     let host = "0.0.0.0";
     let port = 8080;
-    println!("Serving on {} port {}.", host, port);
+    log::info!("Serving on {} port {}", host, port);
     HttpServer::new(|| {
         App::new()
             .wrap(Logger::default())
             .wrap(Logger::new("%a %{User-Agent}i"))
             .service(get_hello::hello)
             .service(get_double::double)
+            .service(Files::new("/images", "static/images/").show_files_listing())
+            .service(Files::new("/", "./static/root/").index_file("index.html"))
     })
     .bind((host, port))?
     .run()
