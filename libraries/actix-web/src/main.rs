@@ -4,6 +4,7 @@ use env_logger::Env;
 
 mod get_double;
 mod get_hello;
+mod get_json;
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -18,6 +19,7 @@ async fn main() -> std::io::Result<()> {
             .wrap(Logger::new("%a %{User-Agent}i"))
             .service(get_hello::hello)
             .service(get_double::double)
+            .service(get_json::json)
             .service(Files::new("/images", "static/images/").show_files_listing())
             .service(Files::new("/", "./static/root/").index_file("index.html"))
     })
