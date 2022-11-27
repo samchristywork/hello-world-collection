@@ -57,6 +57,17 @@ mod tests {
         let req = test::TestRequest::get().uri("/double/10").to_request();
         let resp = test::call_and_read_body(&app, req).await;
         assert_eq!(resp, "Success: Your doubled number is 20!");
+
+        let req = test::TestRequest::get().uri("/double/a").to_request();
+        let resp = test::call_service(&mut app, req).await;
+        assert!(resp.status().is_success());
+
+        let req = test::TestRequest::get().uri("/double/a").to_request();
+        let resp = test::call_and_read_body(&app, req).await;
+        assert_eq!(
+            resp,
+            "Error: Please make sure your request includes a number."
+        );
     }
 
     #[actix_web::test]
