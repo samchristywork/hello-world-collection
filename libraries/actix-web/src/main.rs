@@ -86,4 +86,17 @@ mod tests {
         let resp = test::call_and_read_body(&app, req).await;
         assert_eq!(resp, "Hello bar!");
     }
+
+    #[actix_web::test]
+    async fn test_get_json() {
+        let mut app = test::init_service(App::new().service(get_json::json)).await;
+
+        let req = test::TestRequest::get().uri("/json/foo").to_request();
+        let resp = test::call_service(&mut app, req).await;
+        assert!(resp.status().is_success());
+
+        let req = test::TestRequest::get().uri("/json/foo").to_request();
+        let resp = test::call_and_read_body(&app, req).await;
+        assert_eq!(resp, "{\"name\":\"foo\",\"name_double\":\"foofoo\"}");
+    }
 }
