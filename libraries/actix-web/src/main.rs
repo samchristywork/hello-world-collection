@@ -40,3 +40,25 @@ async fn main() -> std::io::Result<()> {
     .run()
     .await
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use actix_web::{test, App};
+
+    #[actix_web::test]
+    async fn test_get_hello() {
+        let mut app = test::init_service(App::new().service(get_hello::hello)).await;
+        let req = test::TestRequest::get().uri("/hello/test").to_request();
+        let resp = test::call_service(&mut app, req).await;
+        assert!(resp.status().is_success());
+
+        let req = test::TestRequest::get().uri("/hello/foo").to_request();
+        let result = test::call_and_read_body(&app, req).await;
+        assert_eq!(result, "Hello foo!");
+
+        let req = test::TestRequest::get().uri("/hello/bar").to_request();
+        let result = test::call_and_read_body(&app, req).await;
+        assert_eq!(result, "Hello bar!");
+    }
+}
