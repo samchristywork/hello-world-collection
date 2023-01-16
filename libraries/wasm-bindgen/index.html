@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+</body>
+<script type="module">
+import init, { hello_world } from "./pkg/wasm_bindgen_example.js";
+init().then(() => {
+  hello_world("WebAssembly");
+});
+</script>
+</html>
