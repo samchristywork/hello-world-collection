@@ -17,6 +17,8 @@ Make sure you have the `wasm-pack` program:
 cargo install wasm-pack
 ```
 
+## Building
+
 Use `wasm-pack` to compile the Rust library:
 
 ```
@@ -34,3 +36,15 @@ wasm_bindgen_example_bg.wasm.d.ts
 wasm_bindgen_example.d.ts
 wasm_bindgen_example.js
 ```
+
+## Running
+
+Once all of the static content is generated, just use whatever server you want
+to serve the content. For instance:
+
+```
+python3 -m http.server
+```
+
+-and navigate to `localhost:8080`. You should get an alert message that says
+"Hello, World!".
