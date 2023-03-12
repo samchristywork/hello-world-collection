@@ -1,0 +1,18 @@
+foo:
+  bar: "fizz"
+  baz: "buzz"
+
+friends:
+  Alice:
+    age: 24
+  Bob:
+    age: 25
+  Charles:
+    age: 26
+
+books:
+  - "Alice in Wonderland"
+  - "The Jungle"
+  - "Stranger in a Strange Land"
+
+scalar: 1
