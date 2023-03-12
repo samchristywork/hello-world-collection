@@ -30,4 +30,18 @@ void traverseAndPrint(YAML::Node root, int depth = 0) {
 
 int main() {
   YAML::Node config = YAML::LoadFile("../config.yml");
+
+  cout << "Traversal:" << endl;
+  traverseAndPrint(config);
+  cout << endl;
+
+  cout << "Friends List:" << endl;
+  YAML::Node friends = config["friends"];
+  for (YAML::iterator e = friends.begin(); e != friends.end(); ++e) {
+    cout << e->first.as<string>() << ", age " << e->second["age"] << endl;
+  }
+  cout << endl;
+
+  cout << "Picking by Key:" << endl;
+  cout << "foo->bar=" << config["foo"]["bar"] << endl;
 }
