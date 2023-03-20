@@ -1,11 +1,11 @@
 #!/bin/bash
 
-make clean
-make coverage
-./build/main
-gcov src/main.c -o build/*
-lcov --capture --directory build/ --output-file build/coverage.info
-genhtml build/coverage.info --output-directory build/
-mkdir -p gcov
-mv *.gcov gcov/
+make clean || exit
+make coverage || exit
+./build/main || exit
+gcov src/main.c -o build/* || exit
+lcov --capture --directory build/ --output-file build/coverage.info || exit
+genhtml build/coverage.info --output-directory build/ || exit
+mkdir -p gcov || exit
+mv *.gcov gcov/ || exit
 firefox build/index.html
