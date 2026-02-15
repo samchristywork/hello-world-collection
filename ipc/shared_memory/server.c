@@ -49,5 +49,5 @@ int main() {
   // Cleanup
   munmap(mem, 4096);
   close(fd);
-  shm_unlink("/dev/shm/mmap_example");
+  unlink("/dev/shm/mmap_example");
 }
