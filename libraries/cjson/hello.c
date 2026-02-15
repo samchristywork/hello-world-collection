@@ -18,7 +18,7 @@ int main() {
    * buffer
    */
   fseek(f, 0, SEEK_END);
-  int size=ftell(f);
+  long size=ftell(f);
   rewind(f);
 
   /*
@@ -26,8 +26,8 @@ int main() {
    */
   char buffer[size+1];
   buffer[size]=0;
-  int ret=fread(buffer, 1, size, f);
-  if(ret!=size){
+  size_t ret=fread(buffer, 1, size, f);
+  if(ret!=(size_t)size){
     fprintf(stderr, "Could not read the expected number of bytes.\n");
     exit(EXIT_FAILURE);
   }
