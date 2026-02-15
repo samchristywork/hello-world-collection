@@ -3,6 +3,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <gtk/gtk.h>
 
+GLuint vao;
 GLuint buffer;
 GLuint program;
 glm::mat4 model = glm::mat4(1.0);
@@ -33,6 +34,7 @@ GLuint init_shader(int type) {
     bzero(buf, s + 1);
     fread(buf, 1, s, f);
     glShaderSource(shader, 1, &buf, NULL);
+    free(buf);
     fclose(f);
   }
 
@@ -45,6 +47,7 @@ GLuint init_shader(int type) {
     bzero(buf, s + 1);
     fread(buf, 1, s, f);
     glShaderSource(shader, 1, &buf, NULL);
+    free(buf);
     fclose(f);
   }
 
@@ -75,8 +78,8 @@ void init_shaders(GLuint *program) {
 void realize(GtkWidget *widget) {
   gtk_gl_area_make_current(GTK_GL_AREA(widget));
 
-  glGenVertexArrays(1, &buffer);
-  glBindVertexArray(buffer);
+  glGenVertexArrays(1, &vao);
+  glBindVertexArray(vao);
 
   glGenBuffers(1, &buffer);
   glBindBuffer(GL_ARRAY_BUFFER, buffer);
