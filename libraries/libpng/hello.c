@@ -20,6 +20,8 @@ int main() {
   }
   if (!png_image_write_to_file(&image, "build/out.png", 0, buffer, 0, NULL)) {
     fprintf(stderr, "libpng: Failed to write to file.\n");
+    free(buffer);
     exit(EXIT_FAILURE);
   }
+  free(buffer);
 }
