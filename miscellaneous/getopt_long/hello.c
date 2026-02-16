@@ -4,11 +4,11 @@
 
 void usage(char *argv[]) {
   fprintf(stderr,
-          "Usage: %s [-f foo] [-b bar] [file(s)]\n"
-          " -f,--foo      Some description goes here.\n"
-          " -b,--bar      Another description.\n"
-          " -h,--help     Print this usage message.\n"
-          " -v,--verbose  Display additional logging information.\n"
+          "Usage: %s [-p] [-s something] [file(s)]\n"
+          " -p,--print     Print Hello, World!\n"
+          " -s,--something Some description goes here.\n"
+          " -h,--help      Print this usage message.\n"
+          " -v,--verbose   Display additional logging information.\n"
           "",
           argv[0]);
   exit(EXIT_FAILURE);
