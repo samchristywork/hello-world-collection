@@ -10,6 +10,11 @@ int main() {
   CURL *handle = curl_easy_init();
   if (handle) {
     FILE *f = fopen(filename, "wb");
+    if (!f) {
+      perror("fopen");
+      curl_easy_cleanup(handle);
+      return 1;
+    }
     curl_easy_setopt(handle, CURLOPT_URL, url);
     curl_easy_setopt(handle, CURLOPT_WRITEDATA, f);
     curl_easy_setopt(handle, CURLOPT_WRITEFUNCTION, write_callback);
