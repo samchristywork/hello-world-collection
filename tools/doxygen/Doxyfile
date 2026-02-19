@@ -1,0 +1,6 @@
+PROJECT_NAME           = "Hello, World!"
+OUTPUT_DIRECTORY       = docs
+INPUT                  = .
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+QUIET                  = YES
